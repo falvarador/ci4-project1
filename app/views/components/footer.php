@@ -1,11 +1,16 @@
+<style>
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+
 <footer class="footer">
     <div class="content has-text-centered">
         <p>
-            <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>.
-            The source code is licensed
-            <a href="https://opensource.org/license/mit">MIT</a>. The
-            website content is licensed
-            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0//">CC BY NC SA 4.0</a>.
+            <span>This is my frist project with CodeIgniter 4.</span> Build by <a href="https://x.com/freddyalvarador">Freddy Alvarado R</a>.
         </p>
     </div>
 </footer>
