@@ -1,0 +1,31 @@
+<template id="heart-template">
+    <button class="button" aria-label="Heart">💜 × <span>0</span></button>
+</template>
+
+<script>
+    class Heart extends HTMLElement {
+        count;
+
+        constructor() {
+            super();
+
+            this.count = 0;
+
+            const template = document.getElementById("heart-template");
+            const html = template.content.cloneNode(true);
+            this.append(html);
+        }
+
+        connectedCallback() {
+            const button = this.querySelector('button');
+            const span = this.querySelector('span');
+
+            button?.addEventListener('click', () => {
+                this.count++;
+                span.textContent = this.count.toString();
+            });
+        }
+    }
+
+    customElements.define('heart-element', Heart);
+</script>

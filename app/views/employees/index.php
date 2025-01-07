@@ -43,7 +43,6 @@
                             <span class="icon">
                                 <i class="fas fa-edit"></i>
                             </span>
-                            Edit
                         </a>
 
                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
@@ -51,7 +50,6 @@
                             <span class="icon">
                                 <i class="fas fa-trash-alt"></i>
                             </span>
-                            Delete
                         </button>
                     </td>
                 </tr>
@@ -59,5 +57,14 @@
         </table>
     </div>
 </section>
+
+<heart-element></heart-element>
+
+<card-element>
+    <?= $this->include('components/card.html') ?>
+    <span>Freddy desde el componente</span>
+</card-element>
+
+<?= $this->include('components/heart.html') ?>
 
 <?= $this->endSection() ?>
