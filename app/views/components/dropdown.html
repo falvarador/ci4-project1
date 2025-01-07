@@ -1,25 +1,33 @@
 <template shadowrootmode="open">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+
   <div class="dropdown">
     <div class="dropdown-trigger">
-      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
-        <span>Click me</span>
-        <span class="icon is-small">
-          <i class="fas fa-angle-down" aria-hidden="true"></i>
-        </span>
-      </button>
+      <slot name="trigger">This is the trigger</slot>
     </div>
     <div class="dropdown-menu" id="dropdown-menu3" role="menu">
       <div class="dropdown-content">
-        <a href="#" class="dropdown-item"> Overview </a>
-        <a href="#" class="dropdown-item"> Modifiers </a>
-        <a href="#" class="dropdown-item"> Grid </a>
-        <a href="#" class="dropdown-item"> Form </a>
-        <a href="#" class="dropdown-item"> Elements </a>
-        <a href="#" class="dropdown-item"> Components </a>
-        <a href="#" class="dropdown-item"> Layout </a>
-        <hr class="dropdown-divider" />
-        <a href="#" class="dropdown-item"> More </a>
+        <slot name="content">This is the content</slot>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+  class Dropdown extends HTMLElement {
+    constructor() {
+      super();
+
+      // this.attachShadow({ mode: 'open' });
+      // const template = document.getElementById('dropdown-template');
+      // const html = template.content.cloneNode(true);
+      // this.shadowRoot.append(html);
+    }
+
+    connectedCallback() {
+      console.log('connected');
+    }
+  }
+
+  customElements.define('dropdown-element', Dropdown);
+</script>

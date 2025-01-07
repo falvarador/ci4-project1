@@ -58,13 +58,13 @@
     </div>
 </section>
 
-<heart-element></heart-element>
+<heart-element data-start="18">
+    <?= $this->include('components/heart.html') ?>
+</heart-element>
 
 <card-element>
     <?= $this->include('components/card.html') ?>
     <span>Freddy desde el componente</span>
 </card-element>
-
-<?= $this->include('components/heart.html') ?>
 
 <?= $this->endSection() ?>

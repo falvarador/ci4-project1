@@ -1,29 +1,50 @@
-<template id="heart-template">
+<template shadowrootmode="open">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+
     <button class="button" aria-label="Heart">💜 × <span>0</span></button>
 </template>
 
 <script>
     class Heart extends HTMLElement {
         count;
+        button;
+        span;
 
         constructor() {
             super();
 
-            this.count = 0;
-
-            const template = document.getElementById("heart-template");
-            const html = template.content.cloneNode(true);
-            this.append(html);
+            // const template = document.getElementById("heart-template");
+            // const html = template.content.cloneNode(true);
+            // this.append(html);
         }
 
         connectedCallback() {
-            const button = this.querySelector('button');
-            const span = this.querySelector('span');
+            this.count = 0;
+            this.button = this.shadowRoot.querySelector('button');
+            this.span = this.shadowRoot.querySelector('span');
 
-            button?.addEventListener('click', () => {
-                this.count++;
-                span.textContent = this.count.toString();
-            });
+            const start = this.getAttribute("data-start");
+
+            if (start) {
+                let value = parseInt(start) || 0;
+                this.span.textContent = value;
+                this.count = value;
+            }
+
+            this.button.addEventListener("click", this);
+        }
+
+        disconnectedCallback() {
+            this.button.removeEventListener("click", this);
+        }
+
+        handleEvent(event) {
+            if (event.type === "click") this.handleClick();
+        }
+
+        handleClick() {
+            this.count++;
+            this.span.textContent = this.count.toString();
         }
     }
 
