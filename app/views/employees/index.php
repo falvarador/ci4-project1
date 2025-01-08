@@ -58,13 +58,12 @@
     </div>
 </section>
 
-<heart-element data-start="18">
-    <?= $this->include('components/heart.html') ?>
+<heart-element data-start=<?= 18 ?>>
+    <button class="button" aria-label="Heart">💜 × <span><?= 18 ?></span></button>
 </heart-element>
 
-<card-element>
-    <?= $this->include('components/card.html') ?>
-    <span>Freddy desde el componente</span>
-</card-element>
+<!-- <script type="module" src="/components/heart.js"></script>-->
+
+<?= $this->include('components/heart.html') ?>
 
 <?= $this->endSection() ?>

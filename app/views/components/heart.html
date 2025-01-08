@@ -1,9 +1,3 @@
-<template shadowrootmode="open">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-
-    <button class="button" aria-label="Heart">💜 × <span>0</span></button>
-</template>
-
 <script>
     class Heart extends HTMLElement {
         count;
@@ -12,16 +6,12 @@
 
         constructor() {
             super();
-
-            // const template = document.getElementById("heart-template");
-            // const html = template.content.cloneNode(true);
-            // this.append(html);
         }
 
         connectedCallback() {
             this.count = 0;
-            this.button = this.shadowRoot.querySelector('button');
-            this.span = this.shadowRoot.querySelector('span');
+            this.button = this.querySelector('button');
+            this.span = this.querySelector('span');
 
             const start = this.getAttribute("data-start");
 
