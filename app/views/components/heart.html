@@ -1,11 +1,16 @@
-<script>
+<script {csp-script-nonce}>
     class Heart extends HTMLElement {
-        count;
         button;
+        count;
+        initialValue = 0;
         span;
 
         constructor() {
             super();
+        }
+
+        static get observedAttributes() {
+            return ["data-start"];
         }
 
         connectedCallback() {
@@ -13,19 +18,20 @@
             this.button = this.querySelector('button');
             this.span = this.querySelector('span');
 
-            const start = this.getAttribute("data-start");
-
-            if (start) {
-                let value = parseInt(start) || 0;
-                this.span.textContent = value;
-                this.count = value;
-            }
+            this.span.textContent = this.initialValue.toString();
+            this.count = this.initialValue;
 
             this.button.addEventListener("click", this);
         }
 
         disconnectedCallback() {
             this.button.removeEventListener("click", this);
+        }
+
+        attributeChangedCallback(name, oldValue, newValue) {
+            if (name === "data-start") {
+                this.initialValue = parseInt(newValue) || 0;
+            }
         }
 
         handleEvent(event) {
