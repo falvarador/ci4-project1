@@ -58,11 +58,9 @@
     </div>
 </section>
 
-<heart-element data-start=<?= 18 ?>>
-    <button class="button" aria-label="Heart">💜 × <span><?= 18 ?></span></button>
+<heart-element data-start=<?= 90 ?>>
+    <button class="button" aria-label="Heart">💜 × <span><?= 90 ?></span></button>
 </heart-element>
-
-<!-- <script type="module" src="/components/heart.js"></script>-->
 
 <?= $this->include('components/heart.html') ?>
 
