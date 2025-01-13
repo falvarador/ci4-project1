@@ -9,4 +9,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/',  [Home::class, 'index']);
 $routes->get('/db', [Home::class, 'db']);
 
-$routes->resource('employees');
+$routes->resource('employees', [
+    "placeholder" => "(:numm)",
+    "except" => ["show"]
+]);

@@ -1,9 +1,9 @@
 <script {csp-script-nonce}>
     class Heart extends HTMLElement {
-        button;
-        count;
-        initialValue = 0;
-        span;
+        #button;
+        #count;
+        #initialValue = 0;
+        #span;
 
         constructor() {
             super();
@@ -35,10 +35,10 @@
         }
 
         handleEvent(event) {
-            if (event.type === "click") this.handleClick();
+            if (event.type === "click") this.#handleClick();
         }
 
-        handleClick() {
+        #handleClick() {
             this.count++;
             this.span.textContent = this.count.toString();
         }

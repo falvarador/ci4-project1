@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\DepartmentModel;
 
 class Employees extends BaseController
 {
@@ -35,7 +36,10 @@ class Employees extends BaseController
      */
     public function new()
     {
-        //
+        $model = new DepartmentModel();
+        $departments = $model->findAll();
+
+        return view('employees/new', ['departments' => $departments]);
     }
 
     /**

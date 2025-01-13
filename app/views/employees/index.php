@@ -9,7 +9,7 @@
     </div>
 
     <div class="block">
-        <a href="nuevo.html" class="button">
+        <a href="<?= base_url('employees/new') ?>" class="button">
             <span class="icon">
                 <i class="fas fa-plus"></i>
             </span>

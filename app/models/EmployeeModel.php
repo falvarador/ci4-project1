@@ -9,7 +9,7 @@ class EmployeeModel extends Model
     protected $table            = 'employees';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
+    protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ["code", "name", "birthdate", "phone", "email", "department_id"];
