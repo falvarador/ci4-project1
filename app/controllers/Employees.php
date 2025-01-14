@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\DepartmentModel;
+use App\Models\EmployeeModel;
+use CodeIgniter\HTTP\RedirectResponse;
 
 class Employees extends BaseController
 {
@@ -47,9 +49,43 @@ class Employees extends BaseController
      *
      * @return string
      */
-    public function create()
+    public function create(): RedirectResponse
     {
-        //
+        $rules = [
+            'code' => 'required|string|min_length[5]|max_length[5]|is_unique[employees.code]',
+            'name' => 'required',
+            'birthdate' => 'required',
+            'phone' => 'required',
+            'email' => 'valid_email',
+            'department' => 'required|is_not_unique[departments.id]'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('error', $this->validator->listErrors());
+        }
+
+        $employee = $this->request->getPost([
+            'code',
+            'name',
+            'birthdate',
+            'phone',
+            'email',
+            'department'
+        ]);
+
+        $model = new EmployeeModel();
+        $model->insert(
+            [
+                'code' => trim($employee['code']),
+                'name' => trim($employee['name']),
+                'birthdate' => $employee['birthdate'],
+                'phone' => $employee['phone'],
+                'email' => $employee['email'],
+                'department_id' => $employee['department'],
+            ]
+        );
+
+        return redirect()->to("employees");
     }
 
     /**

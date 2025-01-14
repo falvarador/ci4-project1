@@ -1,0 +1,28 @@
+<script>
+    class Message extends HTMLElement {
+        button;
+
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            this.button = this.querySelector('button');
+            this.button.addEventListener('click', this);
+        }
+
+        disconnectedCallback() {
+            this.button.removeEventListener('click', this);
+        }
+
+        handleEvent(event) {
+            if (event.type === "click") this.handleClick();
+        }
+
+        handleClick() {
+            this.remove();
+        }
+    }
+
+    customElements.define('message-element', Message);
+</script>
