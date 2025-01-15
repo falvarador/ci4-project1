@@ -9,6 +9,8 @@ use CodeIgniter\HTTP\RedirectResponse;
 
 class Employees extends BaseController
 {
+    protected $helpers = ['form'];
+
     /**
      * Return an array of resource objects, themselves in array format.
      *

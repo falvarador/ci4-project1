@@ -37,9 +37,10 @@
                         <td><?= $employee->name ?></td>
                         <td><?= $employee->phone ?></td>
                         <td><?= $employee->email ?></td>
-                        <td>RH</td>
+                        <td><?= $employee->department_id ?></td>
                         <td>
-                            <a href="<?= base_url('employees/edit/' . $employee->id) ?>" class="btn btn-warning btn-sm me-2">
+                            <a href="<?= base_url('employees/edit/' . $employee->id) ?>"
+                                class="btn btn-warning btn-sm me-2">
                                 <span class="icon">
                                     <i class="fas fa-edit"></i>
                                 </span>

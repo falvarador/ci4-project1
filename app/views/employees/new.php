@@ -11,7 +11,7 @@
         <?php
         $error = session()->getFlashdata('error');
         if ($error):
-        ?>
+            ?>
             <message-element>
                 <div class="notification is-danger is-light">
                     <button class="delete"></button>
@@ -19,9 +19,8 @@
                 </div>
             </message-element>
 
-        <?php
-        endif
-        ?>
+            <?php
+        endif ?>
     </div>
     <div class="block">
         <form action="<?= base_url("employees") ?>" method="post" class="columns is-multiline">
@@ -29,39 +28,44 @@
                 <fieldset class="field">
                     <label class="label">Code</label>
                     <div class="control">
-                        <input autocomplete="off" name="code" class="input" type="text" placeholder="Code">
+                        <input autocomplete="off" name="code" class="input" type="text" placeholder="Code"
+                            value="<?= set_value("code") ?>">
                     </div>
                     <!-- <p class="help">This is a help text</p> -->
                 </fieldset>
                 <fieldset class="field">
                     <label class="label">Name</label>
                     <div class="control">
-                        <input autocomplete="off" name="name" class="input" type="text" placeholder="Name">
+                        <input autocomplete="off" name="name" class="input" type="text" placeholder="Name"
+                            value="<?= set_value("name") ?>">
                     </div>
                 </fieldset>
 
-                <fieldset class="field">
+                <fieldset class=" field">
                     <label class="label">Birhtdate</label>
                     <div class="control">
-                        <input autocomplete="off" name="birthdate" class="input" type="date" placeholder="Birthdate">
+                        <input autocomplete="off" name="birthdate" class="input" type="date" placeholder="Birthdate"
+                            value="<?= set_value("birthdate") ?>">
                     </div>
                 </fieldset>
             </aside>
 
-            <aside class="column is-half">
+            <aside class=" column is-half">
                 <fieldset class="field">
                     <label class="label">Phone</label>
                     <div class="control">
-                        <input autocomplete="off" name="phone" class="input" type="text" placeholder="Phone">
+                        <input autocomplete="off" name="phone" class="input" type="text" placeholder="Phone"
+                            value="<?= set_value("phone") ?>">
                     </div>
                 </fieldset>
-                <fieldset class="field">
+                <fieldset class=" field">
                     <label class="label">Email</label>
                     <div class="control">
-                        <input autocomplete="off" name="email" class="input" type="email" placeholder="Email">
+                        <input autocomplete="off" name="email" class="input" type="email" placeholder="Email"
+                            value="<?= set_value("email") ?>">
                     </div>
                 </fieldset>
-                <fieldset class="field">
+                <fieldset class=" field">
                     <label class="label">Department</label>
                     <p class="control">
                         <span class="select is-fullwidth">
@@ -92,7 +96,6 @@
 </section>
 
 
-<?=
-$this->include('components/message.html');
-$this->endSection();
-?>
+<?= $this->include('components/message.html'); ?>
+
+<?= $this->endSection() ?>
