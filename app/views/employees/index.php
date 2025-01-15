@@ -31,28 +31,29 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>87320765613</td>
-                    <td>John Doe</td>
-                    <td>0123456789</td>
-                    <td>m@email.com</td>
-                    <td>RH</td>
-                    <td>
-
-                        <a href="edita.html" class="btn btn-warning btn-sm me-2">
-                            <span class="icon">
-                                <i class="fas fa-edit"></i>
-                            </span>
-                        </a>
-
-                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#eliminaModal" data-bs-id="1">
-                            <span class="icon">
-                                <i class="fas fa-trash-alt"></i>
-                            </span>
-                        </button>
-                    </td>
-                </tr>
+                <?php foreach ($employees as $employee): ?>
+                    <tr>
+                        <td><?= $employee->code ?></td>
+                        <td><?= $employee->name ?></td>
+                        <td><?= $employee->phone ?></td>
+                        <td><?= $employee->email ?></td>
+                        <td>RH</td>
+                        <td>
+                            <a href="<?= base_url('employees/edit/' . $employee->id) ?>" class="btn btn-warning btn-sm me-2">
+                                <span class="icon">
+                                    <i class="fas fa-edit"></i>
+                                </span>
+                                Edit
+                            </a>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#eliminaModal" data-bs-id="<?= $employee->id ?>">
+                                <span class="icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </span>
+                                Delete
+                            </button>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>

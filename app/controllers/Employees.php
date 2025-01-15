@@ -16,7 +16,10 @@ class Employees extends BaseController
      */
     public function index()
     {
-        return view('employees/index');
+        $model = new EmployeeModel();
+        $employees = $model->findAll();
+
+        return view('employees/index', ['employees' => $employees]);
     }
 
     /**
